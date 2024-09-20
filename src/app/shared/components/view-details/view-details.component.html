@@ -1,0 +1,121 @@
+<div class="min-h-screen bg-gradient-to-br from-gray-100 to-gray-200 py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-extrabold text-gray-900 mb-8 text-center">Document Details</h2>
+
+    <div *ngIf="documentDetails" class="bg-white shadow-xl rounded-lg overflow-hidden">
+      <!-- Header Section -->
+      <div class="bg-indigo-600 px-6 py-4 flex justify-between items-center">
+        <h3 class="text-xl font-semibold text-white">{{ documentDetails.subjectTitle || 'No Subject' }}</h3>
+        <span class="bg-indigo-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+          {{ documentDetails.status || 'N/A' }}
+        </span>
+        <div class="flex flex-col items-center">
+          <span class="text-white font-semibold mb-2">QR Code:</span>
+          <div class="w-32 h-32 bg-gray-100 rounded-lg flex items-center justify-center">
+            <qrcode [qrdata]="documentDetails.qrCode" [width]="100" [margin]="0" [errorCorrectionLevel]="'M'"></qrcode>
+          </div>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="text-white font-semibold mb-2">Barcode:</span>
+          <div class="w-40 h-24 bg-gray-100 rounded-lg flex items-center justify-center">
+            <img *ngIf="documentDetails.barcode" [src]="documentDetails.barcode" alt="Barcode" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Left Column -->
+        <div class="space-y-6">
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-500">Document Code</span>
+            <span class="mt-1 text-lg font-semibold text-gray-900">{{ documentDetails.documentCode || 'N/A' }}</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-500">Origin Office</span>
+            <span class="mt-1 text-lg text-gray-900">{{ documentDetails.originOffice || 'N/A' }}</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-500">Category</span>
+            <span class="mt-1 text-lg text-gray-900">{{ documentDetails.category || 'N/A' }}</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-500">Type</span>
+            <span class="mt-1 text-lg text-gray-900">{{ documentDetails.type || 'N/A' }}</span>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="space-y-6">
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-500">Created By</span>
+            <span class="mt-1 text-lg text-gray-900">{{ documentDetails.createdBy || 'N/A' }}</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-500">Date Created</span>
+            <span class="mt-1 text-lg text-gray-900">{{ documentDetails.dateCreated || 'N/A' }}</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-sm font-medium text-gray-500">Current Location</span>
+            <span class="mt-1 text-lg text-gray-900">{{ documentDetails.currentLocation || 'N/A' }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Document Logbook -->
+      <div class="px-6 py-4">
+        <h4 class="text-lg font-semibold text-gray-900 mb-4">Document Logbook</h4>
+        <ul class="space-y-3" *ngIf="documentDetails.logbook && documentDetails.logbook.length > 0; else noLogbook">
+          <li *ngFor="let log of documentDetails.logbook" class="bg-gray-50 rounded-lg p-3 text-sm text-gray-700">
+            <div class="flex justify-between items-center mb-1">
+              <span class="font-medium">{{ log.date || 'N/A' }}</span>
+              <span class="text-indigo-600">{{ log.from || 'N/A' }} → {{ log.to || 'N/A' }}</span>
+            </div>
+            <p class="text-gray-600">{{ log.messageRemarks || 'No remarks' }}</p>
+          </li>
+        </ul>
+        <ng-template #noLogbook>
+          <p class="text-gray-500">No logbook entries available.</p>
+        </ng-template>
+      </div>
+
+      <!-- Attachments -->
+      <div class="px-6 py-4 bg-gray-50">
+        <h4 class="text-lg font-semibold text-gray-900 mb-4">Attachments</h4>
+        <div class="flex flex-wrap gap-2" *ngIf="documentDetails.attachments && documentDetails.attachments.length > 0; else noAttachments">
+          <a *ngFor="let attachment of documentDetails.attachments" 
+             [href]="attachment" 
+             target="_blank" 
+             class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800 hover:bg-indigo-200 transition-colors duration-200">
+            <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+            </svg>
+            {{ attachment }}
+          </a>
+        </div>
+        <ng-template #noAttachments>
+          <p class="text-gray-500">No attachments available.</p>
+        </ng-template>
+      </div>
+
+      <!-- Received Information -->
+      <div *ngIf="documentDetails.receivedFrom || documentDetails.receivedBy || documentDetails.receivedDate" class="px-6 py-4 border-t border-gray-200">
+        <h4 class="text-lg font-semibold text-gray-900 mb-4">Received Information</h4>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+          <div>
+            <span class="font-medium text-gray-500">Received From:</span>
+            <p class="mt-1 text-gray-900">{{ documentDetails.receivedFrom || 'N/A' }}</p>
+          </div>
+          <div>
+            <span class="font-medium text-gray-500">Received By:</span>
+            <p class="mt-1 text-gray-900">{{ documentDetails.receivedBy || 'N/A' }}</p>
+          </div>
+          <div>
+            <span class="font-medium text-gray-500">Received Date:</span>
+            <p class="mt-1 text-gray-900">{{ documentDetails.receivedDate || 'N/A' }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

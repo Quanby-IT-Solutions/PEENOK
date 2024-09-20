@@ -1,0 +1,90 @@
+
+    <main class="flex flex-col">
+      <h1 class="text-4xl font-bold text-black max-md:max-w-full">
+        Generate Reports
+      </h1>
+      <section class="flex flex-col mt-16 ml-24 max-w-full w-[870px] max-md:mt-10">
+        <div class="flex flex-col w-full max-md:max-w-full">
+          <div class="flex flex-wrap gap-10 items-start w-full max-md:max-w-full">
+            <div class="flex flex-col grow shrink min-w-[240px] w-[200px]">
+              <label for="office" class="leading-snug font-[number:var(--sds-typography-body-font-weight-regular)] opacity-[var(--sds-size-stroke-border)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)]">
+                Office
+              </label>
+              <div class="flex gap-2 items-center py-3 pr-3 pl-4 mt-2 w-full bg-white rounded-lg border border-solid border-zinc-300 min-h-[40px] min-w-[240px]">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a819a5860a79b746c6f3cd6b829d5d29c2d8884cea526c376dfe491e7253a5b6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" alt="" class="object-contain self-stretch my-auto w-4 aspect-square" />
+                <select id="office" class="w-full bg-transparent border-none focus:outline-none">
+                  <option value="">Select an office</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex flex-col grow shrink min-w-[240px] w-[200px]">
+              <label for="category" class="leading-snug font-[number:var(--sds-typography-body-font-weight-regular)] opacity-[var(--sds-size-stroke-border)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)]">
+                Category
+              </label>
+              <div class="flex gap-2 items-center py-3 pr-3 pl-4 mt-2 w-full bg-white rounded-lg border border-solid border-zinc-300 min-h-[40px] min-w-[240px]">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a819a5860a79b746c6f3cd6b829d5d29c2d8884cea526c376dfe491e7253a5b6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" alt="" class="object-contain self-stretch my-auto w-4 aspect-square" />
+                <select id="category" class="w-full bg-transparent border-none focus:outline-none">
+                  <option value="">Select a category</option>
+                </select>
+              </div>
+            </div>
+            <div class="flex flex-col grow shrink min-w-[240px] w-[200px]">
+              <label for="type" class="leading-snug font-[number:var(--sds-typography-body-font-weight-regular)] opacity-[var(--sds-size-stroke-border)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)]">
+                Type
+              </label>
+              <div class="flex gap-2 items-center py-3 pr-3 pl-4 mt-2 w-full bg-white rounded-lg border border-solid border-zinc-300 min-h-[40px] min-w-[240px]">
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a819a5860a79b746c6f3cd6b829d5d29c2d8884cea526c376dfe491e7253a5b6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" alt="" class="object-contain self-stretch my-auto w-4 aspect-square" />
+                <select id="type" class="w-full bg-transparent border-none focus:outline-none">
+                  <option value="">Select a type</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-10 items-center mt-9 w-full font-[number:var(--sds-typography-body-font-weight-regular)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)] max-md:max-w-full">
+            <div class="flex flex-col grow shrink self-stretch my-auto min-w-[240px] w-[200px]">
+              <label for="dateRange" class="leading-snug opacity-[var(--sds-size-stroke-border)]">
+                Date Range
+              </label>
+              <div class="flex gap-2 items-center py-3 pr-3 pl-4 mt-2 w-full leading-none whitespace-nowrap bg-white rounded-lg border border-solid border-zinc-300 min-h-[40px] min-w-[240px]">
+                <select id="dateRange" class="flex-1 shrink self-stretch my-auto basis-0 opacity-[var(--sds-size-stroke-border)] bg-transparent border-none focus:outline-none">
+                  <option value="custom">Custom</option>
+                </select>
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/a819a5860a79b746c6f3cd6b829d5d29c2d8884cea526c376dfe491e7253a5b6?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" alt="" class="object-contain shrink-0 self-stretch my-auto w-4 aspect-square" />
+              </div>
+            </div>
+            <div class="flex flex-col grow shrink self-stretch my-auto min-w-[240px] w-[200px]">
+              <label for="dateFrom" class="leading-snug opacity-[var(--sds-size-stroke-border)]">
+                Date Range From
+              </label>
+              <div class="flex gap-2 items-center py-2 pr-3 pl-4 mt-2 max-w-full leading-none whitespace-nowrap bg-white rounded-lg border border-solid border-zinc-300 min-h-[40px] min-w-[240px] w-[250px]">
+                <input type="date" id="dateFrom" class="flex-1 shrink self-stretch my-auto basis-0 opacity-[var(--sds-size-stroke-border)] bg-transparent border-none focus:outline-none" placeholder="MM/DD/YY" />
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0a5e9d0c4c7ea2281f8da575f43b241b7dba00ef2aa570ccf45e02e783415996?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" alt="" class="object-contain shrink-0 self-stretch my-auto w-6 aspect-square" />
+              </div>
+            </div>
+            <div class="flex flex-col grow shrink self-stretch my-auto min-w-[240px] w-[200px]">
+              <label for="dateTo" class="leading-snug opacity-[var(--sds-size-stroke-border)]">
+                Date Range To
+              </label>
+              <div class="flex gap-2 items-center py-2 pr-3 pl-4 mt-2 max-w-full leading-none whitespace-nowrap bg-white rounded-lg border border-solid border-zinc-300 min-h-[40px] min-w-[240px] w-[250px]">
+                <input type="date" id="dateTo" class="flex-1 shrink self-stretch my-auto basis-0 opacity-[var(--sds-size-stroke-border)] bg-transparent border-none focus:outline-none" placeholder="MM/DD/YY" />
+                <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/0a5e9d0c4c7ea2281f8da575f43b241b7dba00ef2aa570ccf45e02e783415996?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" alt="" class="object-contain shrink-0 self-stretch my-auto w-6 aspect-square" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-9 items-center self-start mt-20 text-xl font-medium text-center text-black max-md:mt-10">
+          <button class="flex flex-col justify-center self-stretch p-2.5 my-auto bg-amber-500 rounded-xl border border-solid border-zinc-400 w-[164px]">
+            <div class="flex gap-2 justify-center items-center w-full">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/80c74e79e891055d3ecf5d44a77092d0fe73392fdbd75978aabb3ee591fd6ccb?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" alt="" class="object-contain shrink-0 self-stretch my-auto w-5 aspect-square" />
+              <span class="self-stretch my-auto">Export to .pdf</span>
+            </div>
+          </button>
+          <button class="flex flex-col justify-center self-stretch p-2.5 my-auto whitespace-nowrap bg-red-600 rounded-xl border border-solid border-zinc-400 w-[104px]">
+            <div class="flex gap-2 justify-center items-center w-full">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/17e99750c81c763faf1bd49c476f6e3d0d353f96e85a6809d2fe523924b074c5?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" alt="" class="object-contain shrink-0 self-stretch my-auto aspect-square w-[30px]" />
+              <span class="self-stretch my-auto">Clear</span>
+            </div>
+          </button>
+        </div>
+      </section>
+    </main>

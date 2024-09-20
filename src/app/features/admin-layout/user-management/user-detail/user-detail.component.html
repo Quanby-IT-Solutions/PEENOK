@@ -1,0 +1,64 @@
+<section class="flex flex-col pt-10">
+    <div class="flex flex-col w-full max-md:max-w-full">
+      <h1 class="text-4xl font-bold text-left text-black max-md:max-w-full">
+        User Management &gt; View/Update User Details
+      </h1>
+      <div class="flex flex-col justify-center items-center p-2.5 mt-5 w-full border border-black border-solid max-md:mt-10 max-md:max-w-full">
+        <main class="flex overflow-hidden flex-col items-start px-12 pt-12 pb-40 max-w-full bg-white border border-solid border-zinc-200 min-h-[768px] w-[1452px] max-md:px-5 max-md:pb-24">
+          <form class="flex flex-col max-w-full w-[422px]">
+            <div class="flex flex-col max-w-full w-[392px]">
+              <div class="flex flex-col w-full">
+                <label for="name" class="leading-snug font-[number:var(--sds-typography-body-font-weight-regular)] opacity-[var(--sds-size-stroke-border)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)]">
+                  Name
+                </label>
+                <input id="name" type="text" class="overflow-hidden gap-2.5 self-stretch px-4 py-3 mt-2 w-full text-base bg-white rounded-lg border border-solid border-zinc-300 text-neutral-900" />
+              </div>
+              <div class="flex flex-col mt-7 w-full whitespace-nowrap font-[number:var(--sds-typography-body-font-weight-regular)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)]">
+                <label for="agency" class="leading-snug opacity-[var(--sds-size-stroke-border)]">
+                  Agency/Office/Bureau
+                </label>
+                <div class="flex gap-2 items-center py-3 pr-3 pl-4 mt-2 w-full leading-none bg-white rounded-lg border border-solid border-zinc-300 min-h-[40px] min-w-[240px]">
+                    <select id="office_name" aria-label="Select Agency" class="flex-1 ...">
+                        <option></option>
+                      </select>
+                </div>
+              </div>
+              <div class="flex flex-col mt-7 w-full whitespace-nowrap font-[number:var(--sds-typography-body-font-weight-regular)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)]">
+                <label for="status" class="leading-snug opacity-[var(--sds-size-stroke-border)]">
+                  Status
+                </label>
+                <div class="flex gap-2 items-center py-3 pr-3 pl-4 mt-2 w-full leading-none bg-white rounded-lg border border-solid border-zinc-300 min-h-[40px] min-w-[240px]">
+                  <select id="status" class="flex-1 shrink self-stretch my-auto basis-0 opacity-[var(--sds-size-stroke-border)] bg-transparent border-none">
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                  </select>
+                </div>
+              </div>
+              <div class="flex flex-col mt-7 w-full whitespace-nowrap font-[number:var(--sds-typography-body-font-weight-regular)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)]">
+                <label for="role" class="leading-snug opacity-[var(--sds-size-stroke-border)]">
+                  Role
+                </label>
+                <div class="flex gap-2 items-center py-3 pr-3 pl-4 mt-2 w-full leading-none bg-white rounded-lg border border-solid border-zinc-300 min-h-[40px] min-w-[240px]">
+                  <select id="role"  class="flex-1 shrink self-stretch my-auto basis-0 opacity-[var(--sds-size-stroke-border)] bg-transparent border-none">
+                    <option></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-10 items-start mt-36 w-full leading-none text-black whitespace-nowrap font-[number:var(--sds-typography-body-font-weight-regular)] max-w-[422px] text-[length:var(--sds-typography-body-size-medium)] max-md:mt-10 max-md:max-w-full">
+              <button type="button" class="flex overflow-hidden flex-1 shrink gap-2 justify-center items-center p-3 rounded-lg border border-solid basis-0 bg-zinc-400 border-zinc-800">
+                Cancel
+              </button>
+              <button type="button" class="flex overflow-hidden flex-1 shrink gap-2 justify-center items-center p-3 bg-amber-500 rounded-lg border border-solid basis-0 border-zinc-800">
+                Save
+              </button>
+              <button type="button" class="flex overflow-hidden flex-1 shrink gap-2 justify-center items-center p-3 bg-green-500 rounded-lg border border-solid basis-0 border-zinc-800">
+                Edit
+              </button>
+            </div>
+          </form>
+        </main>
+      </div>
+    </div>
+  </section>
+  

@@ -1,0 +1,90 @@
+<!-- src/app/logs/logs.component.html -->
+<div class="max-w-5xl mx-auto p-8 bg-white rounded-xl shadow-lg">
+  <!-- Search and Clear Section -->
+  <div class="flex items-center mb-4 space-x-4">
+    <input
+      type="text"
+      placeholder="Search Logs..."
+      [(ngModel)]="searchQuery"
+      (input)="filterLogs()"
+      class="flex-grow p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      (click)="clearSearch()"
+      class="p-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition duration-300"
+    >
+      Clear
+    </button>
+  </div>
+
+  <!-- Logs List -->
+  <div *ngIf="filteredLogs.length > 0; else noData">
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-left bg-white">
+        <thead>
+          <tr class="border-b border-gray-200 bg-gray-100">
+            <th class="py-2 px-4 text-sm font-semibold text-gray-600">Action</th>
+            <th class="py-2 px-4 text-sm font-semibold text-gray-600">Document Code</th>
+            <th class="py-2 px-4 text-sm font-semibold text-gray-600">Details</th>
+            <th class="py-2 px-4 text-sm font-semibold text-gray-600">Subject/Title</th>
+            <th class="py-2 px-4 text-sm font-semibold text-gray-600">Category</th>
+            <th class="py-2 px-4 text-sm font-semibold text-gray-600">Type</th>
+            <th class="py-2 px-4 text-sm font-semibold text-gray-600">Date and Time</th>
+            <th class="py-2 px-4 text-sm font-semibold text-gray-600">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let log of filteredLogs" class="border-b border-gray-200 hover:bg-gray-50">
+            <td class="py-2 px-4 text-sm text-gray-800">{{ log.action }}</td>
+            <td class="py-2 px-4 text-sm text-gray-800">{{ log.documentCode }}</td>
+            <td class="py-2 px-4 text-sm text-gray-800">
+              <ng-container [ngSwitch]="log.action">
+                <span *ngSwitchCase="'Created'">Created By: {{ log.createdBy }}</span>
+                <span *ngSwitchCase="'Released'">Released To: {{ log.releasedTo }}, Released By: {{ log.releasedBy }}</span>
+                <span *ngSwitchCase="'Received'">Received From: {{ log.receivedFrom }}, Received By: {{ log.receivedBy }}</span>
+                <span *ngSwitchCase="'Completed'">Completed By: {{ log.completedBy }}</span>
+              </ng-container>
+            </td>
+            <td class="py-2 px-4 text-sm text-gray-800">{{ log.subjectTitle }}</td>
+            <td class="py-2 px-4 text-sm text-gray-800">{{ log.category }}</td>
+            <td class="py-2 px-4 text-sm text-gray-800">{{ log.type }}</td>
+            <td class="py-2 px-4 text-sm text-gray-800">{{ log.dateTime }}</td>
+            <td class="py-2 px-4 text-sm">
+              <!-- View Details Icon Button -->
+              <button
+                class="text-blue-500 hover:text-blue-600 transition duration-300"
+                (click)="viewDetails(log.documentCode)"
+                title="View Details"
+              >
+                <!-- Eye Icon for "View Details" -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12m0 0a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.943 7.522 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.478 0-8.268-2.943-9.542-7z" />
+                </svg>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="mt-4 flex justify-center space-x-2">
+      <button
+        *ngFor="let page of [].constructor(totalPages); let i = index"
+        (click)="changePage(i + 1)"
+        class="px-4 py-2 rounded-lg border border-gray-300 transition duration-300"
+        [ngClass]="{
+          'bg-blue-500 text-white': currentPage === i + 1,
+          'bg-white text-gray-700': currentPage !== i + 1
+        }"
+      >
+        {{ i + 1 }}
+      </button>
+    </div>
+  </div>
+
+  <!-- No Data Template -->
+  <ng-template #noData>
+    <p class="text-center text-gray-500">No logs found.</p>
+  </ng-template>
+</div>

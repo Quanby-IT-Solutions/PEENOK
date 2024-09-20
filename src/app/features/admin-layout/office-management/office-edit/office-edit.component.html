@@ -1,0 +1,33 @@
+<section class="flex flex-col mt-10">
+  <header class="self-start text-4xl font-bold text-black max-md:max-w-full">
+    <h1>Agency Management &gt; Edit Agency Details</h1>
+  </header>
+  <main class="flex flex-col justify-center items-center p-2.5 mt-5 border border-black border-solid max-md:mt-10 max-md:max-w-full">
+    <article class="flex overflow-hidden flex-col items-start px-12 pt-12 pb-96 max-w-full bg-white border border-solid border-zinc-200 min-h-[768px] w-[1452px] max-md:px-5 max-md:pb-24">
+      <form (ngSubmit)="onSubmit()" class="flex flex-col max-w-full w-[422px]">
+        <div class="flex flex-col max-w-full w-[392px]">
+          <div class="flex flex-col w-full">
+            <label for="agencyName" class="leading-snug font-[number:var(--sds-typography-body-font-weight-regular)] opacity-[var(--sds-size-stroke-border)] text-[color:var(--sds-color-text-default-default)] text-[length:var(--sds-typography-body-size-medium)]">
+              Agency Name
+            </label>
+            <input
+              type="text"
+              id="agencyName"
+              [(ngModel)]="agencyName"
+              name="agencyName"
+              class="overflow-hidden gap-2.5 self-stretch px-4 py-3 mt-2 w-full text-base whitespace-nowrap bg-white rounded-lg border border-solid border-zinc-300 text-neutral-900"
+            />
+          </div>
+        </div>
+        <div class="flex gap-10 items-start mt-36 w-full leading-none text-black whitespace-nowrap font-[number:var(--sds-typography-body-font-weight-regular)] max-w-[422px] text-[length:var(--sds-typography-body-size-medium)] max-md:mt-10 max-md:max-w-full">
+          <button type="button" (click)="onCancel()" class="flex overflow-hidden flex-1 shrink gap-2 justify-center items-center p-3 rounded-lg border border-solid basis-0 bg-zinc-400 border-zinc-800">
+            Cancel
+          </button>
+          <button type="submit" class="flex overflow-hidden flex-1 shrink gap-2 justify-center items-center p-3 bg-amber-500 rounded-lg border border-solid basis-0 border-zinc-800">
+            Save
+          </button>
+        </div>
+      </form>
+    </article>
+  </main>
+</section>

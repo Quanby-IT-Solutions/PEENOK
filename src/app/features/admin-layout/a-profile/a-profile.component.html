@@ -1,0 +1,32 @@
+<section class="container mx-auto px-4 py-8">
+    <!-- User Profile Header outside of container -->
+    <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">User Profile</h2>
+  
+    <!-- Container for profile details -->
+    <div class="profile-container mx-auto px-6 py-8 bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl">
+      <header class="bg-blue-600 text-white py-4 px-6 rounded-lg mb-8">
+        <h2 class="text-xl font-semibold">User Profile</h2>
+      </header>
+  
+      <div class="profile-photo mb-6 flex flex-col items-center">
+        <img [src]="user.profilePhotoUrl" alt="Profile Photo" class="rounded-full w-32 h-32 object-cover mb-4" />
+        
+        <!-- Add a label for the file input -->
+        <label for="profilePhotoInput" class="sr-only">Change Profile Photo</label>
+        <input id="profilePhotoInput" type="file" (change)="onChangeProfilePhoto($event)"
+               class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100" />
+      </div>
+  
+      <div class="profile-details mb-6 text-center">
+        <p class="text-lg text-gray-800"><strong>Name:</strong> {{ user.name }}</p>
+        <p class="text-lg text-gray-800"><strong>Email:</strong> {{ user.email }}</p>
+      </div>
+  
+      <div class="flex justify-center space-x-4">
+        <button class="px-6 py-3 text-white rounded-lg hover:bg-orange-600 transition-colors focus:outline-none focus:ring-2">
+          Change Password
+        </button>
+      </div>
+    </div>
+  </section>
+  

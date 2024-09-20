@@ -1,0 +1,102 @@
+<section *ngIf="documentDetails" class="container mx-auto px-4 py-8">
+  <h1 class="text-4xl font-bold text-center mb-8">Receive Document</h1>
+
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
+    <header class="bg-blue-600 text-white py-4 px-6">
+      <h2 class="text-xl font-semibold">Document Codes</h2>
+    </header>
+    <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <div>
+        <label for="documentCode" class="block text-sm font-medium text-gray-700 mb-2">Document Code</label>
+        <input id="documentCode" type="text"  [(ngModel)]="documentDetails.documentCode"  readonly class="flex-1 shrink self-stretch my-auto w-full opacity-[var(--sds-size-stroke-border)]" aria-label="Document Code">
+      </div>
+      
+      <div>
+        <h3 class="text-lg font-semibold mb-2">QR Code</h3>
+        <div class="bg-gray-200 p-4 rounded">
+          <qrcode 
+          [qrdata]="documentDetails.qrCodeData" 
+          [width]="310" 
+          [errorCorrectionLevel]="'M'">
+        </qrcode>
+                </div>
+      </div>
+
+      <div>
+        <h3 class="text-lg font-semibold mb-2">Barcode</h3>
+        <div class="bg-gray-200 p-4 rounded">
+          <img *ngIf="documentDetails.barcodeData" [src]="documentDetails.barcodeData" alt="Barcode" />
+        </div>
+      </div>
+    
+    </div>
+
+  </div>
+
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
+    
+    <header class="bg-blue-600 text-white py-4 px-6">
+      <h2 class="text-xl font-semibold">Details</h2>
+    </header>
+    
+    <div class="p-6">
+      <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label for="createdBy" class="block text-sm font-medium text-gray-700 mb-2">Created By</label>
+          <input id="createdBy" type="text" [value]="'Catherine Smith'" readonly class="w-full p-2 bg-gray-100 rounded border border-gray-300">
+        </div>
+        <div>
+          <label for="dateCreated" class="block text-sm font-medium text-gray-700 mb-2">Date Created</label>
+          <input id="dateCreated" type="text" [value]="'MM/DD/YY - 00:00AM/PM'" readonly class="w-full p-2 bg-gray-100 rounded border border-gray-300">
+        </div>
+        <div>
+          <label for="originOffice" class="block text-sm font-medium text-gray-700 mb-2">Origin Office</label>
+          <input id="originOffice" type="text" [value]="'Office1'" readonly class="w-full p-2 bg-gray-100 rounded border border-gray-300">
+        </div>
+        <div>
+          <label for="currentLocation" class="block text-sm font-medium text-gray-700 mb-2">Current Location</label>
+          <input id="currentLocation" type="text" [value]="'Office2'" readonly class="w-full p-2 bg-gray-100 rounded border border-gray-300">
+        </div>
+        <div>
+          <label for="category" class="block text-sm font-medium text-gray-700 mb-2">Category</label>
+          <input id="category" type="text" [value]="'Category1'" readonly class="w-full p-2 bg-gray-100 rounded border border-gray-300">
+        </div>
+        <div>
+          <label for="type" class="block text-sm font-medium text-gray-700 mb-2">Type</label>
+          <input id="type" type="text" [value]="'Type1'" readonly class="w-full p-2 bg-gray-100 rounded border border-gray-300">
+        </div>
+        <div class="md:col-span-2">
+          <label for="subjectTitle" class="block text-sm font-medium text-gray-700 mb-2">Subject/Title</label>
+          <input id="subjectTitle" type="text" [value]="'Subject/Title'" class="w-full p-2 rounded border border-gray-300">
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="bg-white shadow-lg rounded-lg overflow-hidden mb-8">
+    <header class="bg-blue-600 text-white py-4 px-6">
+      <h2 class="text-xl font-semibold">Attachments</h2>
+    </header>
+    <ul class="divide-y divide-gray-200">
+      @for (attachment of attachments; track attachment.id) {
+        <li class="flex items-center justify-between py-4 px-6">
+          <span class="text-gray-900">{{ attachment.name }}</span>
+          <div class="flex space-x-2">
+            <button class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Preview</button>
+            <button class="p-1 bg-red-500 text-white rounded hover:bg-red-600 transition" [attr.aria-label]="'Delete ' + attachment.name">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        </li>
+      }
+    </ul>
+  </div>
+
+  <div class="flex justify-center space-x-4">
+    <button class="px-6 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 transition">Cancel</button>
+    <button class="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">Release</button>
+  </div>
+</section>

@@ -1,0 +1,82 @@
+<div class="max-w-7xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+  <div class="flex justify-between items-center mb-6">
+    <h1 class="text-3xl font-bold text-gray-800">Category Management</h1>
+    <a href="#" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-yellow-600 transition duration-300 flex items-center">
+      <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/3bc03f2eaff970435ce71413c1af4cd0a22283e24cadf3b17a569bf2beae0364?placeholderIfAbsent=true&apiKey=377401e3604042c7b3deecb062253d04"
+      class="w-4 h-4 mr-2"
+      alt="Eye Icon"
+    />
+      Create Category
+    </a>
+  </div>
+
+  <div class="flex mb-4">
+    <div class="flex-grow flex items-center border rounded-l-lg px-2 bg-white">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+      </svg>
+      <input
+        type="text"
+        placeholder="Search"
+        class="w-full p-2 focus:outline-none"
+      />
+    </div>
+    <button class="bg-gray-100 px-4 py-2 rounded-r-lg hover:bg-gray-200 transition duration-300 flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M3 3a1 1 0 011-1h12a1 1 0 011 1v3a1 1 0 01-.293.707L12 11.414V15a1 1 0 01-.293.707l-2 2A1 1 0 018 17v-5.586L3.293 6.707A1 1 0 013 6V3z" clip-rule="evenodd" />
+      </svg>
+      Filter
+    </button>
+  </div>
+
+  <div class="overflow-x-auto bg-white rounded-lg shadow">
+    <table class="min-w-full">
+      <thead class="bg-gray-50">
+        <tr>
+          <th class="py-3 px-6 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+          <th class="py-3 px-6 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
+          <th class="py-3 px-6 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-gray-200">
+        <!-- Example document row -->
+        <tr class="hover:bg-gray-50 transition duration-300">
+          <td class="py-4 px-6 text-sm font-medium text-gray-900"></td>
+          <!--TABLE DATA-->
+          <td class="py-4 px-6 text-sm text-gray-500"></td>
+          <td class="py-4 px-6 text-sm font-medium text-right">
+            <button class="text-green-600 hover:text-green-900 transition duration-300" title="Receive Document">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/bb011694b769c5e64776d8d6a33d58cf5b483bd9167e5b7b2c2085dbe93bf5bc?placeholderIfAbsent=true&apiKey=812467e50c6047549228a02e8c7ab96e" alt="Action button" class="object-contain w-full aspect-[1.81]" />
+            </button>
+          </td>
+        </tr>
+        <!-- End example row -->
+        <!-- Add more document rows as needed -->
+      </tbody>
+    </table>
+  </div>
+
+  <div class="flex items-center justify-between mt-4">
+    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline mr-1" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+      </svg>
+      Previous
+    </button>
+    <div class="flex space-x-2">
+      <span class="px-3 py-1 rounded-lg bg-gray-100 text-gray-700">1</span>
+      <span class="px-3 py-1 rounded-lg bg-gray-100 text-gray-700">...</span>
+      <button class="px-3 py-1 rounded-lg bg-gray-100 text-gray-700 transition duration-300">2</button>
+      <button class="px-3 py-1 rounded-lg bg-gray-100 text-gray-700 transition duration-300">3</button>
+      <!-- Add more pagination buttons as needed -->
+    </div>
+    <button class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed">
+      Next
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline ml-1" viewBox="0 0 20 20" fill="currentColor">
+        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10l-3.293-3.293a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+      </svg>
+    </button>
+  </div>
+</div>
